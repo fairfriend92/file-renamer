@@ -5,6 +5,9 @@ from argparse import ArgumentParser
 def rename(path, recursive):    
     for filename in os.listdir(path):
         name, ext = os.path.splitext(filename)
+        name = name.replace(" - ", "-")        
+        name = name.replace("--- ", "-")
+        name = name.replace("--", "-")
         name = name.replace(" ", "-")
         name = name.replace("_", "-")
         name_ascii = unidecode.unidecode(name)
